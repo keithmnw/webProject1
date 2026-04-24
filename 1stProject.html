@@ -1,0 +1,161 @@
+at > /mnt/user-data/outputs/index.html << 'HTMLEOF' <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Website</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                background: #fff;
+                color: #111;
+            }
+
+            nav {
+                display: flex;
+                gap: 2rem;
+                padding: 1rem 2rem;
+                border-bottom: 1px solid #ddd;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: #111;
+                font-size: 1rem;
+            }
+
+            nav a:hover {
+                text-decoration: underline;
+            }
+
+            nav a.active {
+                font-weight: bold;
+            }
+
+            .page {
+                display: none;
+                padding: 3rem 2rem;
+            }
+
+            .page.active {
+                display: block;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                color: #444;
+                line-height: 1.7;
+                margin-bottom: 1rem;
+            }
+
+            .projects-list {
+                list-style: none;
+                margin-top: 1rem;
+            }
+
+            .projects-list li {
+                padding: 1rem;
+                border: 1px solid #ddd;
+                margin-bottom: 0.75rem;
+                border-radius: 4px;
+            }
+
+            .projects-list li h3 {
+                margin-bottom: 0.3rem;
+            }
+
+            .projects-list li p {
+                margin: 0;
+                font-size: 0.9rem;
+            }
+
+            .contact-list {
+                list-style: none;
+                margin-top: 1rem;
+            }
+
+            .contact-list li {
+                margin-bottom: 0.6rem;
+            }
+
+            .contact-list a {
+                color: #111;
+            }
+
+            .contact-list a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <nav>
+            <a href="#" onclick="show('home')" id="nav-home" class="active">Home</a>
+            <a href="#" onclick="show('about')" id="nav-about">About</a>
+            <a href="#" onclick="show('projects')" id="nav-projects">Projects</a>
+            <a href="#" onclick="show('contact')" id="nav-contact">Contact</a>
+        </nav>
+
+        <div id="home" class="page active">
+            <h1>Welcome</h1>
+            <p>This is the home page. Add a short introduction here.</p>
+        </div>
+
+        <div id="about" class="page">
+            <h1>About</h1>
+            <p>Write a bit about yourself here — who you are, what you do, and what you are interested in.</p>
+        </div>
+
+        <div id="projects" class="page">
+            <h1>Projects</h1>
+            <ul class="projects-list">
+                <li>
+                    <h3>Project One</h3>
+                    <p>A short description of this project.</p>
+                </li>
+                <li>
+                    <h3>Project Two</h3>
+                    <p>A short description of this project.</p>
+                </li>
+                <li>
+                    <h3>Project Three</h3>
+                    <p>A short description of this project.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="contact" class="page">
+            <h1>Contact</h1>
+            <p>Feel free to reach out through any of the channels below.</p>
+            <ul class="contact-list">
+                <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
+                <li>GitHub: <a href="#">github.com/yourname</a></li>
+                <li>LinkedIn: <a href="#">linkedin.com/in/yourname</a></li>
+            </ul>
+        </div>
+
+        <script>
+            function show(id) {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                document.getElementById(id).classList.add('active');
+                document.getElementById('nav-' + id).classList.add('active');
+            }
+        </script>
+
+    </body>
+
+    </html>
+    
